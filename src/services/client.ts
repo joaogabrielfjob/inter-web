@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export const client = axios.create({
-  baseURL: 'http://localhost:7777',
+  baseURL: 'https://inter.api.joaojob.dev',
   headers: { 'Content-Type': 'application/json' }
 });
