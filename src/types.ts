@@ -1,5 +1,5 @@
 export type Match = {
-  id: string;
+  id?: number;
   opponent: string;
   location: string;
   league: string;

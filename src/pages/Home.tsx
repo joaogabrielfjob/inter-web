@@ -1,26 +1,13 @@
+import { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
+import { Match } from '../types';
 import { Matches } from './Matches';
+import { fetchMatches } from '../services/match_service';
 
 export function Home() {
-  const match1 = {
-    id: '72cc5',
-    opponent: 'Bahia',
-    location: 'Fonte Nova',
-    league: 'Copa Libertadores',
-    date: new Date(),
-    emblem: 'https://www.placardefutebol.com.br/images/teams/bahia.png'
-  };
+  const [matches, setMatches] = useState<Match[]>([]);
 
-  const match2 = {
-    id: 'b47cc',
-    opponent: 'Bahia',
-    location: 'Fonte Nova',
-    league: 'Copa Libertadores',
-    date: new Date(),
-    emblem: 'https://www.placardefutebol.com.br/images/teams/bahia.png'
-  };
-
-  const matches = [ match1, match2 ];
+  useEffect(() => { fetchMatches().then(setMatches); }, []);
 
   return (
     <div className='z-[1] flex flex-grow flex-col'>

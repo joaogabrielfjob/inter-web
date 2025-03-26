@@ -13,7 +13,7 @@ export function MatchCard({ opponent, location, league, date, emblem }: MatchCar
           </svg>
         </span>
 
-        <p>{league}</p>
+        <p className='capitalize'>{league.toLowerCase()}</p>
       </header>
 
       <main className='flex'>
@@ -23,8 +23,8 @@ export function MatchCard({ opponent, location, league, date, emblem }: MatchCar
         </div>
 
         <div className='flex m-auto flex-col items-center pt-2 font-light'>
-          <p className='h-4'>{date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'numeric', year: '2-digit' })}</p>
-          <p className='h-4'>{date.toLocaleTimeString('pt-BR', { hour: 'numeric', minute: 'numeric' })}</p>
+          <p className='h-4'>{new Date(date).toLocaleDateString('pt-BR', { day: 'numeric', month: 'numeric', year: '2-digit' })}</p>
+          <p className='h-4'>{new Date(date).toLocaleTimeString('pt-BR', { hour: 'numeric', minute: 'numeric' })}</p>
         </div>
 
         <div className='flex m-auto flex-col w-20 items-center'>
