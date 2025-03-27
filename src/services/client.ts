@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export const client = axios.create({
-  baseURL: 'https://inter.api.joaojob.dev',
+  baseURL: import.meta.env.VITE_API_URL,
   headers: { 'Content-Type': 'application/json' }
 });
