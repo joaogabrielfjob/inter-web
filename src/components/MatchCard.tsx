@@ -4,8 +4,11 @@ import { Match } from '../types';
 export type MatchCardProps = Match
 
 export function MatchCard({ opponent, location, league, date, emblem }: MatchCardProps) {
+  const isHome = location === 'Beira-Rio (Porto Alegre, RS)';
+  const colors = isHome ? 'bg-red-500 text-white' : 'bg-white text-red-500';
+
   return (
-    <div className='flex flex-col h-full bg-red-500 shadow-lg shadow-red-500/50 rounded-lg text-white gap-7'>
+    <div className={`flex flex-col h-full shadow-lg shadow-red-500/50 rounded-lg gap-7 ${colors}`}>
       <header className='flex items-center p-4 gap-1'>
         <span className='pb-1'>
           <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='currentColor' className='size-4'>
