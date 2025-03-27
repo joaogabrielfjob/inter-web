@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
 import { Match } from '../types';
-import { Matches } from './Matches';
+import { Matches } from '../components/Matches';
 import { fetchMatches } from '../services/match_service';
 
 export function Home() {

@@ -5,4 +5,6 @@ export type Match = {
   league: string;
   date: Date;
   emblem: string;
+  interGoals: number;
+  opponentGoals: number;
 }

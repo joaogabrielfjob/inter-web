@@ -1,9 +1,9 @@
 import inter from '../assets/inter.svg';
 import { Match } from '../types';
 
-export type MatchCardProps = Match
+export type ResultCardProps = Match
 
-export function MatchCard({ opponent, location, league, date, emblem }: MatchCardProps) {
+export function ResultCard({ opponent, location, league, date, emblem, interGoals, opponentGoals }: ResultCardProps) {
   const isHome = location === 'Beira-Rio (Porto Alegre, RS)';
   const colors = isHome ? 'bg-red-500 text-white' : 'bg-white';
 
@@ -26,8 +26,12 @@ export function MatchCard({ opponent, location, league, date, emblem }: MatchCar
         </div>
 
         <div className='flex m-auto flex-col items-center pt-2 font-light'>
+          <div className='flex justify-between'>
+            <p className='w-1/3 text-left text-2xl font-bold'>{interGoals}</p>
+            <p className='flex-1 whitespace-nowrap px-3 pt-1.5 text-center text-sm uppercase'>X</p>
+            <p className='w-1/3 text-right text-2xl font-bold'>{opponentGoals}</p>
+          </div>
           <p className='h-4'>{new Date(date).toLocaleDateString('pt-BR', { day: 'numeric', month: 'numeric', year: '2-digit' })}</p>
-          <p className='h-4'>{new Date(date).toLocaleTimeString('pt-BR', { hour: 'numeric', minute: 'numeric' })}</p>
         </div>
 
         <div className='flex m-auto flex-col w-20 h-17 items-center'>
