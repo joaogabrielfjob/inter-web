@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Home } from './pages/Home';
+import { Matches } from './pages/Matches';
 import { Results } from './pages/Results';
 
 export const routes = createBrowserRouter([
   {
     path: '/',
-    element: <Home />
+    element: <Matches />
   },
   {
     path: '/resultados',
@@ -13,6 +13,6 @@ export const routes = createBrowserRouter([
   },
   {
     path: '*',
-    element: <Home />
+    element: <Matches />
   },
 ])
