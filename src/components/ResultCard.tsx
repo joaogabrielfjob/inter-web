@@ -36,7 +36,7 @@ export function ResultCard({ opponent, location, league, date, emblem, interGoal
 
         <div className='flex m-auto flex-col w-20 h-17 items-center'>
           <img src={emblem} className='h-12' />
-          <p className='text-center text-base/3 pt-2'>{opponent}</p>
+          <p className='text-center text-base/4 pt-2'>{opponent}</p>
         </div>
       </main>
 
