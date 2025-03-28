@@ -9,3 +9,8 @@ body {
   font-family: Zain;
   background-color: #fff;
 }
+
+#nprogress .bar {
+  height: .2rem;
+  background: #fb2c36 !important;
+}
