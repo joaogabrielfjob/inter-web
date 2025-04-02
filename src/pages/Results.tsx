@@ -76,7 +76,7 @@ export function Results() {
         <div>
           <Button
             size='icon'
-            className='w-10 h-10 bg-red-500 text-white hover:bg-red-600'
+            className='w-10 h-10 bg-red-500 text-white hover:bg-red-600 cursor-pointer'
             onClick={handleSearch}
           >
             <SearchIcon />
