@@ -1,10 +1,6 @@
 import { Select as UISelect, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Combo } from '@/types';
 import { useState } from 'react';
-
-export type Combo = {
-  value:  string;
-  label: string;
-}
 
 export type SelectProps = {
   data: Combo[];
@@ -19,7 +15,7 @@ export function Select({ data, placeholder, value, onChange }: SelectProps) {
   return (
     <UISelect onValueChange={onChange} value={value} onOpenChange={setOpen} open={open}>
       <SelectTrigger
-        className='w-21'
+        className='w-full'
         clearable={!!value}
         onClear={() => onChange('')}
       >
@@ -28,7 +24,7 @@ export function Select({ data, placeholder, value, onChange }: SelectProps) {
       <SelectContent>
         <SelectGroup>
           {data.map(d => (
-            <SelectItem key={d.value} value={d.label}>
+            <SelectItem key={d.value} value={d.value}>
               {d.label}
             </SelectItem>
           ))}

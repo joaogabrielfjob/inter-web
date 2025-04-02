@@ -2,8 +2,6 @@ import { createBrowserRouter } from 'react-router-dom';
 import { Matches } from './pages/Matches';
 import { Results } from './pages/Results';
 import { Layout } from './components/Layout';
-import { fetchMatches } from './services/match_service';
-import { fetchResults } from './services/result_service';
 
 export const routes = createBrowserRouter([
   {
@@ -12,18 +10,15 @@ export const routes = createBrowserRouter([
     children: [
       { 
         path: '/',
-        element: <Matches />,
-        loader: fetchMatches
+        element: <Matches />
       },
       { 
         path: '/resultados',
-        element: <Results />,
-        loader: fetchResults
+        element: <Results />
       },
       { 
         path: '*',
-        element: <Matches />,
-        loader: fetchMatches
+        element: <Matches />
       },
     ],
   },

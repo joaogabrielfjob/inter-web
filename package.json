@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@radix-ui/react-select": "^2.1.6",
+    "@radix-ui/react-slot": "^1.1.2",
     "@tailwindcss/vite": "^4.0.14",
+    "@tanstack/react-query": "^5.71.1",
     "axios": "^1.8.4",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.486.0",
     "nprogress": "^0.2.0",
@@ -25,6 +28,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@tanstack/eslint-plugin-query": "^5.68.0",
     "@types/node": "^22.13.14",
     "@types/nprogress": "^0.2.3",
     "@types/react": "^19.0.10",

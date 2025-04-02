@@ -35,7 +35,7 @@ function SelectTrigger({
   onClear?: () => void;
 }) {
   return (
-    <div className="relative w-fit">
+    <div className="relative w-full">
       <SelectPrimitive.Trigger
         data-slot="select-trigger"
         data-size={size}

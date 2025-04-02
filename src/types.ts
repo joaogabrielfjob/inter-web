@@ -8,3 +8,8 @@ export type Match = {
   interGoals: number;
   opponentGoals: number;
 }
+
+export type Combo = {
+  value: string;
+  label: string;
+}
