@@ -11,16 +11,18 @@ import { fetchResults } from '@/services/result_service';
 import { useLoading } from '@/hooks/use-loading';
 import { ResultsParams } from '@/services/types';
 import { useSearchParams } from 'react-router-dom';
+import { ComboBox } from '@/components/ComboBox';
 
 export function Results() {
   const years = generateYears();
   const months = generateMonths();
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const [{ year, month, league }, setFilter] = useState<ResultsParams>({
+  const [{ year, month, league, opponent }, setFilter] = useState<ResultsParams>({
     year: searchParams.get('ano') || '',
     month: searchParams.get('mes') || '',
-    league: searchParams.get('campeonato') || '' 
+    league: searchParams.get('campeonato') || '',
+    opponent: searchParams.get('time') || ''
   });
 
   const { data: filters, fetchStatus: filterState } = useQuery({
@@ -30,7 +32,7 @@ export function Results() {
 
   const { data: results, fetchStatus: resultsState, refetch } = useQuery({
     queryKey: ['results'],
-    queryFn: async () => await fetchResults({ year, month, league })
+    queryFn: async () => await fetchResults({ year, month, league, opponent })
   })
 
   useLoading([filterState, resultsState])
@@ -43,7 +45,8 @@ export function Results() {
     const params = {
       ...(year ? { ano: year } : {}),
       ...(month ? { mes: month } : {}),
-      ...(league ? { campeonato: league } : {})
+      ...(league ? { campeonato: league } : {}),
+      ...(opponent ? { time: opponent } : {})
     };
 
     refetch();
@@ -70,6 +73,15 @@ export function Results() {
         </div>
 
         <div className='w-47'>
+          <ComboBox
+            data={filters?.opponents ?? []}
+            placeholder='Times'
+            onChange={handleChange('opponent')}
+            value={opponent}
+          />
+        </div>
+
+        <div className='w-47'>
           <Select
             data={filters?.leagues ?? []}
             placeholder='Campeonato'
@@ -77,15 +89,13 @@ export function Results() {
             value={league} />
         </div>
 
-        <div>
-          <Button
-            size='icon'
-            className='w-10 h-10 bg-red-500 text-white hover:bg-red-600 cursor-pointer'
-            onClick={handleSearch}
-          >
-            <SearchIcon />
-          </Button>
-        </div>
+        <Button
+          size='icon'
+          className='w-10 h-10 bg-red-500 text-white hover:bg-red-600 cursor-pointer'
+          onClick={handleSearch}
+        >
+          <SearchIcon />
+        </Button>
       </div>
 
       <div className='container mx-auto grid grid-cols-(--auto-fill) gap-5 py-12'>

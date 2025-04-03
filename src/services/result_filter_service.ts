@@ -9,7 +9,7 @@ const fetchResultsFilter = async () => {
   } catch(exception) {
     console.error('Failed to fetch results filter', exception)
 
-    return { leagues: [] }
+    return { leagues: [], opponents: [] }
   }
 }
 
