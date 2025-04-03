@@ -14,16 +14,16 @@ export function Header() {
         <img src={inter} className='img-fluid float-start' />
       </Link>
 
-      <nav className="flex gap-6">
+      <nav className='flex gap-6'>
         <NavLink 
-          to="/" 
+          to='/' 
           className={({ isActive }) => (isActive ? activeLinkClass : linkClass)}
         >
           Jogos
         </NavLink>
 
         <NavLink 
-          to="/resultados" 
+          to='/resultados' 
           className={({ isActive }) => (isActive ? activeLinkClass : linkClass)}
         >
           Resultados
