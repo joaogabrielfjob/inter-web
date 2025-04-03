@@ -18,9 +18,9 @@ export function Results() {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const [{ year, month, league }, setFilter] = useState<ResultsParams>({
-    year: searchParams.get('year') || '',
-    month: searchParams.get('month') || '',
-    league: searchParams.get('league') || '' 
+    year: searchParams.get('ano') || '',
+    month: searchParams.get('mes') || '',
+    league: searchParams.get('campeonato') || '' 
   });
 
   const { data: filters, fetchStatus: filterState } = useQuery({
@@ -40,10 +40,10 @@ export function Results() {
   }
 
   const handleSearch = () => {
-    const params: ResultsParams = {
-      ...(year ? { year } : {}),
-      ...(month ? { month } : {}),
-      ...(league ? { league } : {})
+    const params = {
+      ...(year ? { ano: year } : {}),
+      ...(month ? { mes: month } : {}),
+      ...(league ? { campeonato: league } : {})
     };
 
     refetch();
