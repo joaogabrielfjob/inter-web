@@ -16,8 +16,12 @@ export function Results() {
   const years = generateYears();
   const months = generateMonths();
 
-  const [, setSearchParams] = useSearchParams();
-  const [{ year, month, league }, setFilter] = useState<ResultsParams>({ year: '', month: '', league: '' });
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [{ year, month, league }, setFilter] = useState<ResultsParams>({
+    year: searchParams.get('year') || '',
+    month: searchParams.get('month') || '',
+    league: searchParams.get('league') || '' 
+  });
 
   const { data: filters, fetchStatus: filterState } = useQuery({
     queryKey: ['filters'],
