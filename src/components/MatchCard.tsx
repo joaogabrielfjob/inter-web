@@ -4,7 +4,7 @@ import { Match } from '../types';
 export type MatchCardProps = Match
 
 export function MatchCard({ opponent, location, league, date, emblem }: MatchCardProps) {
-  const isHome = location === 'Beira-Rio (Porto Alegre, RS)';
+  const isHome = location === 'Estádio José Pinheiro Borda';
   const colors = isHome ? 'bg-red-500 text-white' : 'bg-white';
 
   return (
