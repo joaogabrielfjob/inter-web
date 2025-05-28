@@ -13,6 +13,8 @@ import { ResultsParams } from '@/services/types';
 import { useSearchParams } from 'react-router-dom';
 import { ComboBox } from '@/components/ComboBox';
 
+import ballImg from '@/assets/ball.png';
+
 export function Results() {
   const years = generateYears();
   const months = generateMonths();
@@ -98,8 +100,19 @@ export function Results() {
         </Button>
       </div>
 
-      <div className='container mx-auto grid grid-cols-(--auto-fill) gap-5 py-12'>
-        {results?.map(result => <ResultCard key={result.id} {...result} />)}
+      <div className={results?.length ? 'container mx-auto grid grid-cols-(--auto-fill) gap-5 py-12' : 'flex flex-1 min-h-[60vh] items-center justify-center w-full py-24'}>
+        { results?.length ? 
+          (
+            results.map(result => <ResultCard key={result.id} {...result} />)
+          ) : 
+          (
+            <div className='flex flex-col items-center justify-center w-full'>
+              <img src={ballImg} className='w-24 h-24 mb-4' />
+  
+              <span className='text-xl'>Nenhum jogo encontrado</span>
+            </div>
+          )
+        }
       </div>
     </div>
   );
