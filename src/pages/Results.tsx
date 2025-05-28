@@ -55,7 +55,7 @@ export function Results() {
 
   return (
     <div className='container mx-auto py-12'>
-      <div className='container mx-auto flex flex-row justify-center lg:justify-end gap-7 py-12'>
+      <div className='container mx-auto flex flex-row flex-wrap justify-center lg:justify-end gap-7 py-12'>
         <div className='w-21'>
           <Select
             data={years}
